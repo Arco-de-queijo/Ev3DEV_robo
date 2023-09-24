@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import ast
 
 path = "color_range.txt"
