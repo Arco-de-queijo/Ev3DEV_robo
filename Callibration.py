@@ -32,6 +32,7 @@ def Calibragem():
     #Verde
     voz.beep()
     clear_console()
+    print("\n\n\n         Sensor 1             ")
 
     print("          |||VERDE|||        ", end='\r')
     btn.wait_for_bump('enter')
@@ -67,6 +68,7 @@ def Calibragem():
 
     voz.beep()
     clear_console()
+    print("\n\n\n         Sensor 1             ")
 
     print("          |||PRETO|||        ", end='\r')
     btn.wait_for_bump('enter')
@@ -100,6 +102,7 @@ def Calibragem():
 
     voz.beep()
     clear_console()
+    print("\n\n\n         Sensor 1             ")
 
     print("          |||CINZA|||        ", end='\r')
     btn.wait_for_bump('enter')
@@ -131,6 +134,7 @@ def Calibragem():
     #segundo sensor
     voz.beep()
     clear_console()
+    print("\n\n\n         Sensor 2             ")
 
     print("          |||VERDE|||        ", end='\r')
     btn.wait_for_bump('enter')
@@ -166,6 +170,7 @@ def Calibragem():
 
     voz.beep()
     clear_console()
+    print("\n\n\n         Sensor 2             ")
 
     print("          |||PRETO|||        ", end='\r')
     btn.wait_for_bump('enter')
@@ -199,6 +204,7 @@ def Calibragem():
 
     voz.beep()
     clear_console()
+    print("\n\n\n         Sensor 2             ")
 
     print("          |||CINZA|||        ", end='\r')
     btn.wait_for_bump('enter')
