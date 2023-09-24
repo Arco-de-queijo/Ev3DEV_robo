@@ -1,0 +1,25 @@
+    red2 = 0
+    green2 = 0
+    blue = 0
+
+
+
+    def Sensor_2(self):
+        if self.red2 in range(min(lista_r_verde_2), max(lista_r_verde_2)+1) and self.green2 in range(min(lista_g_verde_2), max(lista_g_verde_2)+1) and self.blue in range(min(lista_b_verde_2), max(lista_b_verde_2)+1):
+
+            return "Verde"
+
+        if self.red2 in range(min(lista_r_preto_2), max(lista_r_preto_2)+1) and self.green2 in range(min(lista_g_preto_2), max(lista_g_preto_2)+1) and self.blue in range(min(lista_b_preto_2), max(lista_b_preto_2)+1):
+
+            return "Preto"
+
+        if self.red2 in range(min(lista_r_cinza_2), max(lista_r_cinza_2)+1) and self.green2 in range(min(lista_g_cinza_2), max(lista_g_cinza_2)+1) and self.blue in range(min(lista_b_cinza_2), max(lista_b_cinza_2)+1):
+
+            return "Cinza"
+
+        else:
+            return False
+
+
+
+
