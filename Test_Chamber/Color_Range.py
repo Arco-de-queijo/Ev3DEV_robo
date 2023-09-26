@@ -66,7 +66,7 @@ class Cores():
             return "Cinza"
 
         else:
-            return "None"
+            return self.red1, self.green1, self.blue1
 
 
     def Sensor_2(self):
@@ -121,4 +121,4 @@ class Cores():
             return "Cinza"
 
         else:
-            return "None"
+            return self.red2, self.green2, self.blue2
