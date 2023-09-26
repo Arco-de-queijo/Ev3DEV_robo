@@ -19,6 +19,7 @@ def Calibragem():
     sensorcor1.calibrate_white()
     sensorcor2.calibrate_white()
     path = 'color_range.txt'
+    os.chmod(path, 0o777)
 
     listared1= []
     listagreen1= []

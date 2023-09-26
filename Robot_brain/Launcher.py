@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 #bibliotecas
 import os
+os.chmod('color_range.txt', 0o777)
 os.environ['TERM'] = 'linux'
 def clear_console():
     os.system('clear')
@@ -45,7 +46,14 @@ while True:
         while not btn.left:
             if btn.enter:
                 voz.beep(2), voz.beep(2)
-                time.sleep(5)
+                time.sleep(2)
                 clear_console()
                 Calibragem()
+
+                clear_console()
+                voz.beep(2)
+                print("MODOS:\n\n\n")
+
+                print("   INICIAR               |||CALIBRAR|||", end='\r')
+
         voz.beep(2)
