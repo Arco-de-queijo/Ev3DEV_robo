@@ -11,7 +11,6 @@ from ev3dev2.button import Button
 from tanq_obj import Tanque
 from eventos_obj import Evento
 from Color_Range import Cores
-from debug_print_function import debug_print
 
 def Loop_principal():
 #variáveis
@@ -25,6 +24,8 @@ def Loop_principal():
     sensorcor1 = ColorSensor(INPUT_3)
     sensorcor2 = ColorSensor(INPUT_4)
     btn = Button()
+    nome_cor1 = cor.Sensor_1()
+    nome_cor2 = cor.Sensor_2()
     sensorcor1.calibrate_white()
     sensorcor2.calibrate_white()
 
@@ -37,10 +38,7 @@ def Loop_principal():
             cor.red1, cor.green1, cor.blue1 = colorlist1
             cor.red2, cor.green2, cor.blue2 = colorlist2
 
-            nome_cor1 = cor.Sensor_1()
-            nome_cor2 = cor.Sensor_2()
-            debug_print(nome_cor1)
-            debug_print(nome_cor2)
+
         #bloco do sonar
 
             if sensorultra1.distance_centimeters <= 6:
