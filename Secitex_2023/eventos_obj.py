@@ -13,6 +13,8 @@ motores = MoveTank(OUTPUT_A, OUTPUT_B)
 movimento = Tanque()
 sensorultra1 = UltrasonicSensor(INPUT_1)
 sensorultra2 = UltrasonicSensor(INPUT_2)
+sensorcor1 = ColorSensor(INPUT_3)
+sensorcor2 = ColorSensor(INPUT_4)
 
 
 class Evento:
@@ -27,10 +29,6 @@ class Evento:
         movimento.rotacao = 1.5
         movimento.rotacionar()
 
-        movimento.speed_a = 100
-        movimento.speed_b = 100
-        movimento.rotacao = 0.5
-        movimento.rotacionar()
 
         caixaloop = "on"
 
@@ -39,7 +37,7 @@ class Evento:
 
 
 
-            if sensorultra2.distance_centimeters > 25:
+            if sensorultra2.distance_centimeters > 15:
 
                 movimento.speed_a = 100
                 movimento.speed_b = -100
@@ -55,10 +53,10 @@ class Evento:
                 movimento.padrao()
 
 
-            if angulogiro >= 120:
+            if angulogiro >= 230:
                 caixaloop = "off"
 
-                if sensorultra2.distance_centimeters <= 25:
+                if sensorultra2.distance_centimeters <= 20:
 
                     movimento.speed_a = -100
                     movimento.speed_b = 100
@@ -82,7 +80,7 @@ class Evento:
 
         movimento.speed_a = 100
         movimento.speed_b = 100
-        movimento.rotacao = 1.5
+        movimento.rotacao = 0.5
         movimento.rotacionar()
 
         self.volantemem = 1
@@ -97,23 +95,30 @@ class Evento:
 
         movimento.speed_a = 100
         movimento.speed_b = 100
-        movimento.rotacao = 1.5
+        movimento.rotacao = 0.5
         movimento.rotacionar()
 
         self.volantemem = 2
 
-    def perpendicular_reta(self):
+    def dar_volta(self):
 
-        movimento.speed_a = -50
-        movimento.speed_b = -50
-        movimento.padrao()
+        movimento.speed_a = 100
+        movimento.speed_b = -100
+        movimento.rotacao = 3
+        movimento.rotacionar()
+
+        movimento.speed_a = 100
+        movimento.speed_b = 100
+        movimento.rotacao = 1
+        movimento.rotacionar()
+
+
+
+
+    def perpendicular_reta(self):
 
         if self.volantemem == 2:
 
-            movimento.speed_a = -100
-            movimento.speed_b = -100
-            movimento.rotacao = 0.75
-            movimento.rotacionar()
 
             movimento.speed_a = -100
             movimento.speed_b = 100
@@ -122,10 +127,6 @@ class Evento:
 
         elif self.volantemem == 1:
 
-            movimento.speed_a = -100
-            movimento.speed_b = -100
-            movimento.rotacao = 0.75
-            movimento.rotacionar()
 
             movimento.speed_a = 100
             movimento.speed_b = -100
@@ -134,27 +135,81 @@ class Evento:
 
     def acelerar(self):
 
-        movimento.speed_a = 50
-        movimento.speed_b = 50
+        movimento.speed_a = 70
+        movimento.speed_b = 70
         movimento.padrao()
 
-    def ajuste_para_direita(self):
+    def ajuste_1(self):
 
-        movimento.speed_a = 60
-        movimento.speed_b = -60
-        movimento.rotacao = 0.125
+        movimento.speed_a = 100
+        movimento.speed_b = 100
+        movimento.rotacao = 0.3
         movimento.rotacionar()
-        motores.off()
+
+        if sensorcor1.color_name != "White" and sensorcor1.color_name != "Black":
+
+            movimento.speed_a = 100
+            movimento.speed_b = 100
+            movimento.rotacao = 0.1
+            movimento.rotacionar()
+
+        else:
+            movimento.speed_a = -100
+            movimento.speed_b = -100
+            movimento.rotacao = 0.5
+            movimento.rotacionar()
+
+            movimento.speed_a = 0
+            movimento.speed_b = -100
+            movimento.rotacao = 0.5
+            movimento.rotacionar()
+
+            movimento.speed_a = -100
+            movimento.speed_b = 0
+            movimento.rotacao = 1
+            movimento.rotacionar()
+
+            movimento.speed_a = 100
+            movimento.speed_b = 100
+            movimento.rotacao = 0.5
+            movimento.rotacionar()
 
         self.volantemem = 2
 
-    def ajuste_para_esquerda(self):
+    def ajuste_2(self):
 
-        movimento.speed_a = -60
-        movimento.speed_b = 60
-        movimento.rotacao = 0.125
+        movimento.speed_a = 100
+        movimento.speed_b = 100
+        movimento.rotacao = 0.3
         movimento.rotacionar()
-        motores.off()
+
+        if sensorcor2.color_name != "White" and sensorcor2.color_name != "Black":
+            movimento.speed_a = 100
+            movimento.speed_b = 100
+            movimento.rotacao = 0.1
+            movimento.rotacionar()
+
+        else:
+            movimento.speed_a = -100
+            movimento.speed_b = -100
+            movimento.rotacao = 0.5
+            movimento.rotacionar()
+
+            movimento.speed_a = -100
+            movimento.speed_b = 0
+            movimento.rotacao = 0.5
+            movimento.rotacionar()
+
+            movimento.speed_a = 0
+            movimento.speed_b = -100
+            movimento.rotacao = 1
+            movimento.rotacionar()
+
+            movimento.speed_a = 100
+            movimento.speed_b = 100
+            movimento.rotacao = 0.5
+            movimento.rotacionar()
+
 
         self.volantemem = 1
 

@@ -54,10 +54,11 @@ while True:
             if sensorcor1.color_name == "Green"  :
                 #vira na direção do verde esquerdo
 
+
                 motores.off()
 
-                if sensorcor2.color_name == "Green":
-                    break
+                if sensorcor2.color_name != "White":
+                    ativar.dar_volta()
 
                 else:
                     ativar.curva_fechada_esq()
@@ -67,8 +68,8 @@ while True:
 
                 motores.off()
 
-                if sensorcor1.color_name == "Green":
-                    break
+                if sensorcor1.color_name != "White":
+                    ativar.dar_volta()
 
                 else:
                     ativar.curva_fechada_dir()
@@ -78,7 +79,8 @@ while True:
                 #quando vê dois verdes para de se mover
 
                 motores.off()
-                break
+
+                ativar.dar_volta()
 
         #bloco do sensor de cor para trajeto
 
@@ -95,9 +97,9 @@ while True:
             elif sensorcor1.color_name == "Black" and sensorcor2.color_name != "Black":
                 #Vira para a Direita
 
-                ativar.ajuste_para_direita()
+                ativar.ajuste_1()
 
-            elif sensorcor2.color_name == "Black" and sensorcor1.color_name != "Black":
+            elif sensorcor1.color_name != "Black" and sensorcor2.color_name == "Black":
                 #Vira para a Esquerda
 
-                ativar.ajuste_para_esquerda()
+                ativar.ajuste_2()
