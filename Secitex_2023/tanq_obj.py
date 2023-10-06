@@ -16,7 +16,7 @@ class Tanque:
 
     def padrao(self):
 
-        motores.off()
+
         motores.on(SpeedPercent(self.speed_a)*-1, SpeedPercent(self.speed_b)*-1)
 
 

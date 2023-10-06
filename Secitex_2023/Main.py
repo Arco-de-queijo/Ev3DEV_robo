@@ -51,28 +51,15 @@ while True:
 
         #bloco do sensor de cor para curvas
 
-            if sensorcor1.color_name == "Green"  :
-                #vira na direção do verde esquerdo
+            if sensorcor1.color_name == "Green" and sensorcor2.color_name != "Green":
+                #vira na direção do verde es
 
+                ativar.curva_fechada_esq()
 
-                motores.off()
-
-                if sensorcor2.color_name != "White":
-                    ativar.dar_volta()
-
-                else:
-                    ativar.curva_fechada_esq()
-
-            if sensorcor2.color_name == "Green":
+            if sensorcor2.color_name == "Green" and sensorcor1.color_name != "Green":
                 #vira na direção do verde direito
 
-                motores.off()
-
-                if sensorcor1.color_name != "White":
-                    ativar.dar_volta()
-
-                else:
-                    ativar.curva_fechada_dir()
+                ativar.curva_fechada_dir()
 
 
             if sensorcor1.color_name == "Green" and sensorcor2.color_name == "Green":
@@ -89,10 +76,10 @@ while True:
 
                 ativar.acelerar()
 
-            elif sensorcor1.color_name == "Black" and sensorcor2.color_name == "Black":
+            #elif sensorcor1.color_name == "Black" and sensorcor2.color_name == "Black":
                 #Dá ré e refaz ultimo movimento
 
-                ativar.perpendicular_reta()
+            #    ativar.perpendicular_reta()
 
             elif sensorcor1.color_name == "Black" and sensorcor2.color_name != "Black":
                 #Vira para a Direita

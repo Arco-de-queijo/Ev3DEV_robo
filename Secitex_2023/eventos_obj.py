@@ -53,24 +53,29 @@ class Evento:
                 movimento.padrao()
 
 
-            if angulogiro >= 230:
+            if angulogiro >= 180:
                 caixaloop = "off"
+                while True:
 
-                if sensorultra2.distance_centimeters <= 20:
+                    movimento.speed_a = 70
+                    movimento.speed_b = 70
+                    movimento.padrao()
 
-                    movimento.speed_a = -100
-                    movimento.speed_b = 100
-                    movimento.rotacao = 1.5
-                    movimento.rotacionar()
+                    if sensorcor1.color_name == "Black" or sensorcor2.color_name != "Black":
 
+                        movimento.speed_a = -100
+                        movimento.speed_b = 100
+                        movimento.rotacao = 1.5
+                        movimento.rotacionar()
+                        break
 
-                    angulogiro = 0
-                else:
-                    self.volantemem = 2
-                    angulogiro = 0
-                    break
 
     def curva_fechada_esq(self):
+
+        movimento.speed_a = -100
+        movimento.speed_b = -100
+        movimento.rotacao = 0.3
+        movimento.rotacionar()
 
 
         movimento.speed_a = -100
@@ -80,12 +85,17 @@ class Evento:
 
         movimento.speed_a = 100
         movimento.speed_b = 100
-        movimento.rotacao = 0.5
+        movimento.rotacao = 1
         movimento.rotacionar()
 
         self.volantemem = 1
 
     def curva_fechada_dir(self):
+
+        movimento.speed_a = -100
+        movimento.speed_b = -100
+        movimento.rotacao = 0.3
+        movimento.rotacionar()
 
 
         movimento.speed_a = 100
@@ -95,7 +105,7 @@ class Evento:
 
         movimento.speed_a = 100
         movimento.speed_b = 100
-        movimento.rotacao = 0.5
+        movimento.rotacao = 1
         movimento.rotacionar()
 
         self.volantemem = 2
@@ -122,7 +132,7 @@ class Evento:
 
             movimento.speed_a = -100
             movimento.speed_b = 100
-            movimento.rotacao = 1.5
+            movimento.rotacao = 1
             movimento.rotacionar()
 
         elif self.volantemem == 1:
@@ -130,34 +140,17 @@ class Evento:
 
             movimento.speed_a = 100
             movimento.speed_b = -100
-            movimento.rotacao = 1.5
+            movimento.rotacao = 1
             movimento.rotacionar()
 
     def acelerar(self):
 
-        movimento.speed_a = 70
-        movimento.speed_b = 70
+        movimento.speed_a = 100
+        movimento.speed_b = 100
         movimento.padrao()
 
     def ajuste_1(self):
 
-        movimento.speed_a = 100
-        movimento.speed_b = 100
-        movimento.rotacao = 0.3
-        movimento.rotacionar()
-
-        if sensorcor1.color_name != "White" and sensorcor1.color_name != "Black":
-
-            movimento.speed_a = 100
-            movimento.speed_b = 100
-            movimento.rotacao = 0.1
-            movimento.rotacionar()
-
-        else:
-            movimento.speed_a = -100
-            movimento.speed_b = -100
-            movimento.rotacao = 0.5
-            movimento.rotacionar()
 
             movimento.speed_a = 0
             movimento.speed_b = -100
@@ -171,29 +164,14 @@ class Evento:
 
             movimento.speed_a = 100
             movimento.speed_b = 100
-            movimento.rotacao = 0.5
+            movimento.rotacao = 0.4
             movimento.rotacionar()
 
-        self.volantemem = 2
+            self.volantemem = 2
 
     def ajuste_2(self):
 
-        movimento.speed_a = 100
-        movimento.speed_b = 100
-        movimento.rotacao = 0.3
-        movimento.rotacionar()
 
-        if sensorcor2.color_name != "White" and sensorcor2.color_name != "Black":
-            movimento.speed_a = 100
-            movimento.speed_b = 100
-            movimento.rotacao = 0.1
-            movimento.rotacionar()
-
-        else:
-            movimento.speed_a = -100
-            movimento.speed_b = -100
-            movimento.rotacao = 0.5
-            movimento.rotacionar()
 
             movimento.speed_a = -100
             movimento.speed_b = 0
@@ -207,9 +185,9 @@ class Evento:
 
             movimento.speed_a = 100
             movimento.speed_b = 100
-            movimento.rotacao = 0.5
+            movimento.rotacao = 0.4
             movimento.rotacionar()
 
 
-        self.volantemem = 1
+            self.volantemem = 1
 
