@@ -11,7 +11,7 @@ motores = MoveTank(OUTPUT_A, OUTPUT_B)
 
 #variáveis
 movimento = Tanque()
-sensorultra1 = UltrasonicSensor(INPUT_1)
+#sensorultra1 = UltrasonicSensor(INPUT_1)
 sensorultra2 = UltrasonicSensor(INPUT_2)
 sensorcor1 = ColorSensor(INPUT_3)
 sensorcor2 = ColorSensor(INPUT_4)
