@@ -22,7 +22,7 @@ class Evento:
 
 
     def evento_desviar(self) -> None:
-        angulogiro = 0
+        angulogiro: float | int = 0
 
         movimento.speed_a = -100
         movimento.speed_b = 100
