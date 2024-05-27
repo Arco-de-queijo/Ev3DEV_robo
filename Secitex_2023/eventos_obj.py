@@ -18,10 +18,10 @@ sensorcor2 = ColorSensor(INPUT_4)
 
 
 class Evento:
-    volantemem = 0
+    volantemem: int = 0
 
 
-    def evento_desviar(self):
+    def evento_desviar(self) -> None:
         angulogiro = 0
 
         movimento.speed_a = -100
@@ -30,7 +30,7 @@ class Evento:
         movimento.rotacionar()
 
 
-        caixaloop = "on"
+        caixaloop: str = "on"
 
         while caixaloop == "on":
         #se vira a direita em um raio
@@ -70,7 +70,7 @@ class Evento:
                         break
 
 
-    def curva_fechada_esq(self):
+    def curva_fechada_esq(self) -> None:
 
         movimento.speed_a = -100
         movimento.speed_b = -100
@@ -90,7 +90,7 @@ class Evento:
 
         self.volantemem = 1
 
-    def curva_fechada_dir(self):
+    def curva_fechada_dir(self) -> None:
 
         movimento.speed_a = -100
         movimento.speed_b = -100
@@ -110,7 +110,7 @@ class Evento:
 
         self.volantemem = 2
 
-    def dar_volta(self):
+    def dar_volta(self) -> None:
 
         movimento.speed_a = 100
         movimento.speed_b = -100
@@ -125,7 +125,7 @@ class Evento:
 
 
 
-    def perpendicular_reta(self):
+    def perpendicular_reta(self) -> None:
 
         if self.volantemem == 2:
 
@@ -143,13 +143,13 @@ class Evento:
             movimento.rotacao = 1
             movimento.rotacionar()
 
-    def acelerar(self):
+    def acelerar(self) -> None:
 
         movimento.speed_a = 100
         movimento.speed_b = 100
         movimento.padrao()
 
-    def ajuste_1(self):
+    def ajuste_1(self) -> None:
 
 
             movimento.speed_a = 0
@@ -169,7 +169,7 @@ class Evento:
 
             self.volantemem = 2
 
-    def ajuste_2(self):
+    def ajuste_2(self) -> None:
 
 
 

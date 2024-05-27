@@ -8,31 +8,32 @@ motores = MoveTank(OUTPUT_A, OUTPUT_B)
 
 
 class Tanque:
-    speed_a=0
-    speed_b=0
-    angulo=0
-    rotacao=0
-    segundos=0
 
-    def padrao(self):
+    speed_a: float | int = 0
+    speed_b: float | int = 0
+    angulo: float | int = 0
+    rotacao: float | int = 0
+    segundos: float | int = 0
+
+    def padrao(self) -> None:
 
 
         motores.on(SpeedPercent(self.speed_a)*-1, SpeedPercent(self.speed_b)*-1)
 
 
-    def angular(self):
+    def angular(self) -> None:
 
         motores.off()
         motores.on_for_degrees(SpeedPercent(self.speed_a)*-1, SpeedPercent(self.speed_b)*-1, (self.angulo) )
 
 
-    def rotacionar(self):
+    def rotacionar(self) -> None:
 
         motores.off()
         motores.on_for_rotations(SpeedPercent(self.speed_a)*-1, SpeedPercent(self.speed_b)*-1, (self.rotacao) )
 
 
-    def tempo(self):
+    def tempo(self) -> None:
 
         motores.off()
         motores.on_for_seconds(SpeedPercent(self.speed_a)*-1, SpeedPercent(self.speed_b)*-1, (self.segundos) )
