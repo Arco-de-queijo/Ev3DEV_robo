@@ -15,18 +15,18 @@ from eventos_obj import Evento
 
 #def Loop_principal():
 #variáveis
-ativar = Evento()
-movimento = Tanque()
+ATIVAR = Evento()
+MOVIMENTO = Tanque()
 #cor = Cores()
-voz = Sound()
-motores = MoveTank(OUTPUT_A, OUTPUT_B)
+VOZ = Sound()
+MOTORES = MoveTank(OUTPUT_A, OUTPUT_B)
 #sensorultra1 = UltrasonicSensor(INPUT_1)
-sensorultra2 = UltrasonicSensor(INPUT_2)
-sensorcor1 = ColorSensor(INPUT_3)
-sensorcor2 = ColorSensor(INPUT_4)
-btn = Button()
-sensorcor1.calibrate_white()
-sensorcor2.calibrate_white()
+SENSOR_ULTRA2 = UltrasonicSensor(INPUT_2)
+SENSOR_COR1 = ColorSensor(INPUT_3)
+SENSOR_COR2 = ColorSensor(INPUT_4)
+BTN = Button()
+SENSOR_COR1.calibrate_white()
+SENSOR_COR2.calibrate_white()
 
 
 
@@ -38,59 +38,59 @@ while True:
                 #gira em um raio
                 #curva de ~180°
 
-                #ativar.evento_desviar()
+                #ATIVAR.evento_desviar()
 
         #bloco do sensor de cor para curvas
         #
         #
         #
 
-            if (sensorcor1.color_name == "Green"
-            and sensorcor2.color_name != "Green"):
+            if (SENSOR_COR1.color_name == "Green"
+            and SENSOR_COR2.color_name != "Green"):
                 #vira na direção do verde esquerdo
 
-                ativar.curva_fechada_esq()
+                ATIVAR.curva_fechada_esq()
 
-            if (sensorcor2.color_name == "Green"
-            and sensorcor1.color_name != "Green"):
+            if (SENSOR_COR2.color_name == "Green"
+            and SENSOR_COR1.color_name != "Green"):
                 #vira na direção do verde direito
 
-                ativar.curva_fechada_dir()
+                ATIVAR.curva_fechada_dir()
 
 
-            if (sensorcor1.color_name == "Green"
-            and sensorcor2.color_name == "Green"):
+            if (SENSOR_COR1.color_name == "Green"
+            and SENSOR_COR2.color_name == "Green"):
                 #quando vê dois verdes para de se mover
 
-                motores.off()
+                MOTORES.off()
 
-                ativar.dar_volta()
+                ATIVAR.dar_volta()
 
         #bloco do sensor de cor para trajeto
         #
         #
         #
 
-            if (sensorcor1.color_name != "Black"
-            and sensorcor2.color_name != "Black"):
+            if (SENSOR_COR1.color_name != "Black"
+            and SENSOR_COR2.color_name != "Black"):
                 #Move o robô para frente
 
-                ativar.acelerar()
+                ATIVAR.acelerar()
 
-            #elif (sensorcor1.color_name == "Black"
-            # and sensorcor2.color_name == "Black"):
+            #elif (SENSOR_COR1.color_name == "Black"
+            # and SENSOR_COR2.color_name == "Black"):
                 #Dá ré e refaz ultimo movimento
 
-            #    ativar.perpendicular_reta()
+            #    ATIVAR.perpendicular_reta()
 
-            if (sensorcor1.color_name == "Black"
-            and sensorcor2.color_name != "Black"):
+            if (SENSOR_COR1.color_name == "Black"
+            and SENSOR_COR2.color_name != "Black"):
                 #Vira para a Direita
 
-                ativar.ajuste_1()
+                ATIVAR.ajuste_1()
 
-            if (sensorcor1.color_name != "Black"
-            and sensorcor2.color_name == "Black"):
+            if (SENSOR_COR1.color_name != "Black"
+            and SENSOR_COR2.color_name == "Black"):
                 #Vira para a Esquerda
 
-                ativar.ajuste_2()
+                ATIVAR.ajuste_2()

@@ -3,7 +3,7 @@
 import time
 from ev3dev2.motor import LargeMotor, SpeedPercent, MoveTank, MoveSteering, OUTPUT_A, OUTPUT_B
 
-motores = MoveTank(OUTPUT_A, OUTPUT_B)
+MOTORES = MoveTank(OUTPUT_A, OUTPUT_B)
 
 
 
@@ -18,22 +18,22 @@ class Tanque:
     def padrao(self) -> None:
 
 
-        motores.on(SpeedPercent(self.speed_a)*-1, SpeedPercent(self.speed_b)*-1)
+        MOTORES.on(SpeedPercent(self.speed_a)*-1, SpeedPercent(self.speed_b)*-1)
 
 
     def angular(self) -> None:
 
-        motores.off()
-        motores.on_for_degrees(SpeedPercent(self.speed_a)*-1, SpeedPercent(self.speed_b)*-1, (self.angulo) )
+        MOTORES.off()
+        MOTORES.on_for_degrees(SpeedPercent(self.speed_a)*-1, SpeedPercent(self.speed_b)*-1, (self.angulo) )
 
 
     def rotacionar(self) -> None:
 
-        motores.off()
-        motores.on_for_rotations(SpeedPercent(self.speed_a)*-1, SpeedPercent(self.speed_b)*-1, (self.rotacao) )
+        MOTORES.off()
+        MOTORES.on_for_rotations(SpeedPercent(self.speed_a)*-1, SpeedPercent(self.speed_b)*-1, (self.rotacao) )
 
 
     def tempo(self) -> None:
 
-        motores.off()
-        motores.on_for_seconds(SpeedPercent(self.speed_a)*-1, SpeedPercent(self.speed_b)*-1, (self.segundos) )
+        MOTORES.off()
+        MOTORES.on_for_seconds(SpeedPercent(self.speed_a)*-1, SpeedPercent(self.speed_b)*-1, (self.segundos) )

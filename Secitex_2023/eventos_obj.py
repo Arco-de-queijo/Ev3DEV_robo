@@ -7,15 +7,14 @@ from ev3dev2.motor import MoveTank, OUTPUT_A, OUTPUT_B
 
 #objetos
 from tanq_obj import Tanque
-motores = MoveTank(OUTPUT_A, OUTPUT_B)
+MOTORES = MoveTank(OUTPUT_A, OUTPUT_B)
 
 #variáveis
-movimento = Tanque()
+MOVIMENTO = Tanque()
 #sensorultra1 = UltrasonicSensor(INPUT_1)
-sensorultra2 = UltrasonicSensor(INPUT_2)
-sensorcor1 = ColorSensor(INPUT_3)
-sensorcor2 = ColorSensor(INPUT_4)
-
+SENSOR_ULTRA2 = UltrasonicSensor(INPUT_2)
+SENSOR_COR1 = ColorSensor(INPUT_3)
+SENSOR_COR2 = ColorSensor(INPUT_4)
 
 class Evento:
     volantemem: int = 0
@@ -24,10 +23,10 @@ class Evento:
     def evento_desviar(self) -> None:
         angulogiro: float | int = 0
 
-        movimento.speed_a = -100
-        movimento.speed_b = 100
-        movimento.rotacao = 1.5
-        movimento.rotacionar()
+        MOVIMENTO.speed_a = -100
+        MOVIMENTO.speed_b = 100
+        MOVIMENTO.rotacao = 1.5
+        MOVIMENTO.rotacionar()
 
 
         caixaloop: str = "on"
@@ -37,90 +36,90 @@ class Evento:
 
 
 
-            if sensorultra2.distance_centimeters > 15:
+            if SENSOR_ULTRA2.distance_centimeters > 15:
 
-                movimento.speed_a = 100
-                movimento.speed_b = -100
-                movimento.rotacao = 0.01
-                movimento.rotacionar()
+                MOVIMENTO.speed_a = 100
+                MOVIMENTO.speed_b = -100
+                MOVIMENTO.rotacao = 0.01
+                MOVIMENTO.rotacionar()
 
                 angulogiro += 1
 
             else:
 
-                movimento.speed_a = 100
-                movimento.speed_b = 100
-                movimento.padrao()
+                MOVIMENTO.speed_a = 100
+                MOVIMENTO.speed_b = 100
+                MOVIMENTO.padrao()
 
 
             if angulogiro >= 180:
                 caixaloop = "off"
                 while True:
 
-                    movimento.speed_a = 70
-                    movimento.speed_b = 70
-                    movimento.padrao()
+                    MOVIMENTO.speed_a = 70
+                    MOVIMENTO.speed_b = 70
+                    MOVIMENTO.padrao()
 
-                    if sensorcor1.color_name == "Black" or sensorcor2.color_name != "Black":
+                    if SENSOR_COR1.color_name == "Black" or SENSOR_COR2.color_name != "Black":
 
-                        movimento.speed_a = -100
-                        movimento.speed_b = 100
-                        movimento.rotacao = 1.5
-                        movimento.rotacionar()
+                        MOVIMENTO.speed_a = -100
+                        MOVIMENTO.speed_b = 100
+                        MOVIMENTO.rotacao = 1.5
+                        MOVIMENTO.rotacionar()
                         break
 
 
     def curva_fechada_esq(self) -> None:
 
-        movimento.speed_a = -100
-        movimento.speed_b = -100
-        movimento.rotacao = 0.3
-        movimento.rotacionar()
+        MOVIMENTO.speed_a = -100
+        MOVIMENTO.speed_b = -100
+        MOVIMENTO.rotacao = 0.3
+        MOVIMENTO.rotacionar()
 
 
-        movimento.speed_a = -100
-        movimento.speed_b = 100
-        movimento.rotacao = 1.5
-        movimento.rotacionar()
+        MOVIMENTO.speed_a = -100
+        MOVIMENTO.speed_b = 100
+        MOVIMENTO.rotacao = 1.5
+        MOVIMENTO.rotacionar()
 
-        movimento.speed_a = 100
-        movimento.speed_b = 100
-        movimento.rotacao = 1
-        movimento.rotacionar()
+        MOVIMENTO.speed_a = 100
+        MOVIMENTO.speed_b = 100
+        MOVIMENTO.rotacao = 1
+        MOVIMENTO.rotacionar()
 
         self.volantemem = 1
 
     def curva_fechada_dir(self) -> None:
 
-        movimento.speed_a = -100
-        movimento.speed_b = -100
-        movimento.rotacao = 0.3
-        movimento.rotacionar()
+        MOVIMENTO.speed_a = -100
+        MOVIMENTO.speed_b = -100
+        MOVIMENTO.rotacao = 0.3
+        MOVIMENTO.rotacionar()
 
 
-        movimento.speed_a = 100
-        movimento.speed_b = -100
-        movimento.rotacao = 1.5
-        movimento.rotacionar()
+        MOVIMENTO.speed_a = 100
+        MOVIMENTO.speed_b = -100
+        MOVIMENTO.rotacao = 1.5
+        MOVIMENTO.rotacionar()
 
-        movimento.speed_a = 100
-        movimento.speed_b = 100
-        movimento.rotacao = 1
-        movimento.rotacionar()
+        MOVIMENTO.speed_a = 100
+        MOVIMENTO.speed_b = 100
+        MOVIMENTO.rotacao = 1
+        MOVIMENTO.rotacionar()
 
         self.volantemem = 2
 
     def dar_volta(self) -> None:
 
-        movimento.speed_a = 100
-        movimento.speed_b = -100
-        movimento.rotacao = 3
-        movimento.rotacionar()
+        MOVIMENTO.speed_a = 100
+        MOVIMENTO.speed_b = -100
+        MOVIMENTO.rotacao = 3
+        MOVIMENTO.rotacionar()
 
-        movimento.speed_a = 100
-        movimento.speed_b = 100
-        movimento.rotacao = 1
-        movimento.rotacionar()
+        MOVIMENTO.speed_a = 100
+        MOVIMENTO.speed_b = 100
+        MOVIMENTO.rotacao = 1
+        MOVIMENTO.rotacionar()
 
 
 
@@ -130,42 +129,42 @@ class Evento:
         if self.volantemem == 2:
 
 
-            movimento.speed_a = -100
-            movimento.speed_b = 100
-            movimento.rotacao = 1
-            movimento.rotacionar()
+            MOVIMENTO.speed_a = -100
+            MOVIMENTO.speed_b = 100
+            MOVIMENTO.rotacao = 1
+            MOVIMENTO.rotacionar()
 
         elif self.volantemem == 1:
 
 
-            movimento.speed_a = 100
-            movimento.speed_b = -100
-            movimento.rotacao = 1
-            movimento.rotacionar()
+            MOVIMENTO.speed_a = 100
+            MOVIMENTO.speed_b = -100
+            MOVIMENTO.rotacao = 1
+            MOVIMENTO.rotacionar()
 
     def acelerar(self) -> None:
 
-        movimento.speed_a = 100
-        movimento.speed_b = 100
-        movimento.padrao()
+        MOVIMENTO.speed_a = 100
+        MOVIMENTO.speed_b = 100
+        MOVIMENTO.padrao()
 
     def ajuste_1(self) -> None:
 
 
-            movimento.speed_a = 0
-            movimento.speed_b = -100
-            movimento.rotacao = 0.5
-            movimento.rotacionar()
+            MOVIMENTO.speed_a = 0
+            MOVIMENTO.speed_b = -100
+            MOVIMENTO.rotacao = 0.5
+            MOVIMENTO.rotacionar()
 
-            movimento.speed_a = -100
-            movimento.speed_b = 0
-            movimento.rotacao = 1
-            movimento.rotacionar()
+            MOVIMENTO.speed_a = -100
+            MOVIMENTO.speed_b = 0
+            MOVIMENTO.rotacao = 1
+            MOVIMENTO.rotacionar()
 
-            movimento.speed_a = 100
-            movimento.speed_b = 100
-            movimento.rotacao = 0.4
-            movimento.rotacionar()
+            MOVIMENTO.speed_a = 100
+            MOVIMENTO.speed_b = 100
+            MOVIMENTO.rotacao = 0.4
+            MOVIMENTO.rotacionar()
 
             self.volantemem = 2
 
@@ -173,20 +172,20 @@ class Evento:
 
 
 
-            movimento.speed_a = -100
-            movimento.speed_b = 0
-            movimento.rotacao = 0.5
-            movimento.rotacionar()
+            MOVIMENTO.speed_a = -100
+            MOVIMENTO.speed_b = 0
+            MOVIMENTO.rotacao = 0.5
+            MOVIMENTO.rotacionar()
 
-            movimento.speed_a = 0
-            movimento.speed_b = -100
-            movimento.rotacao = 1
-            movimento.rotacionar()
+            MOVIMENTO.speed_a = 0
+            MOVIMENTO.speed_b = -100
+            MOVIMENTO.rotacao = 1
+            MOVIMENTO.rotacionar()
 
-            movimento.speed_a = 100
-            movimento.speed_b = 100
-            movimento.rotacao = 0.4
-            movimento.rotacionar()
+            MOVIMENTO.speed_a = 100
+            MOVIMENTO.speed_b = 100
+            MOVIMENTO.rotacao = 0.4
+            MOVIMENTO.rotacionar()
 
 
             self.volantemem = 1
