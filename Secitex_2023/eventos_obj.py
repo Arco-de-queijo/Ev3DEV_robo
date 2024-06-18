@@ -17,11 +17,11 @@ SENSOR_COR1 = ColorSensor(INPUT_3)
 SENSOR_COR2 = ColorSensor(INPUT_4)
 
 class Evento:
-    volantemem: int = 0
+    volantemem = 0
 
 
     def evento_desviar(self) -> None:
-        angulogiro: float | int = 0
+        angulogiro = 0
 
         MOVIMENTO.speed_a = -100
         MOVIMENTO.speed_b = 100
@@ -29,7 +29,7 @@ class Evento:
         MOVIMENTO.rotacionar()
 
 
-        caixaloop: str = "on"
+        caixaloop = "on"
 
         while caixaloop == "on":
         #se vira a direita em um raio

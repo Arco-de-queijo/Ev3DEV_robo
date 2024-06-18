@@ -9,11 +9,11 @@ MOTORES = MoveTank(OUTPUT_A, OUTPUT_B)
 
 class Tanque:
 
-    speed_a: float | int = 0
-    speed_b: float | int = 0
-    angulo: float | int = 0
-    rotacao: float | int = 0
-    segundos: float | int = 0
+    speed_a = 0
+    speed_b = 0
+    angulo = 0
+    rotacao = 0
+    segundos = 0
 
     def padrao(self) -> None:
 
