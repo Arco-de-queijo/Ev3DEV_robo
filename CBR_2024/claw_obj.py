@@ -12,7 +12,7 @@ class Claw_class:
 
     velocidade = 0
     rotacao = 0
-    rotacao = 0
+    angulo = 0
     segundos = 0
 
     def agarrar_padrao(self) -> None:

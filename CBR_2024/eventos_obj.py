@@ -12,23 +12,36 @@ MOTORES = MoveTank(OUTPUT_A, OUTPUT_B)
 
 MOVIMENTO = Tanque()
 GARRA = Claw_class()
-SENSOR_ULTRA1 = UltrasonicSensor(INPUT_2)
+#SENSOR_ULTRA1 = UltrasonicSensor(INPUT_2)
 SENSOR_COR1 = ColorSensor(INPUT_4)
 
 
 
 class Evento:
 
-    def foo(self) -> None:
-        GARRA.velocidade = 100
-        GARRA.rotacao = 1
-        GARRA.agarrar_rotacionar()
+    def agarrar_passageiro(self) -> None:
 
-    def bar(self) -> None:
         GARRA.velocidade = 100
-        GARRA.rotacao = 1
-        GARRA.mover_rotacionar()
+        GARRA.angulo = 1200
+        GARRA.agarrar_angular()
 
+    def soltar_passageiro(self) -> None:
+
+        GARRA.velocidade = 25
+        GARRA.angulo = -1200
+        GARRA.agarrar_angular()
+
+    def subir_garra(self) -> None:
+
+        GARRA.velocidade = 50
+        GARRA.angulo = -90
+        GARRA.mover_angular()
+
+    def descer_garra(self) -> None:
+
+        GARRA.velocidade = 25
+        GARRA.angulo = 90
+        GARRA.mover_angular()
 
     def curva_fechada_esq(self) -> None:
 
