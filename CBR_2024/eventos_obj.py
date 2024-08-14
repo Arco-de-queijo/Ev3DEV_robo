@@ -19,13 +19,13 @@ SENSOR_COR1 = ColorSensor(INPUT_4)
 
 class Evento:
 
-    def agarrar_passageiro(self) -> None:
+    def fechar_garra(self) -> None:
 
         GARRA.velocidade = 100
         GARRA.angulo = 1200
         GARRA.agarrar_angular()
 
-    def soltar_passageiro(self) -> None:
+    def abrir_garra(self) -> None:
 
         GARRA.velocidade = 25
         GARRA.angulo = -1200
