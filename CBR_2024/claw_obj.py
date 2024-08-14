@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 #bibliotecas
 import time
-from ev3dev2.motor import LargeMotor, SpeedPercent, MoveTank, MoveSteering, OUTPUT_C, OUTPUT_D
+from ev3dev2.motor import LargeMotor, SpeedPercent, MoveTank, MoveSteering, MediumMotor, OUTPUT_C, OUTPUT_D
 
-GARRA_AGARRAR = LargeMotor(OUTPUT_C)
+GARRA_AGARRAR = MediumMotor(OUTPUT_C)
 GARRA_MOVER = LargeMotor(OUTPUT_D)
 
 

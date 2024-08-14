@@ -11,22 +11,23 @@ from claw_obj import Claw_class
 MOTORES = MoveTank(OUTPUT_A, OUTPUT_B)
 
 MOVIMENTO = Tanque()
-GARRA = Claw_class
-SENSOR_ULTRA1 = UltrasonicSensor(INPUT_1)
+GARRA = Claw_class()
+SENSOR_ULTRA1 = UltrasonicSensor(INPUT_2)
+SENSOR_COR1 = ColorSensor(INPUT_4)
 
 
 
 class Evento:
 
-    #def foo(self) -> None:
-        #GARRA.velocidade = 100
-        #GARRA.rotacao = 1
-        #GARRA.agarrar_rotacionar("segurar")
+    def foo(self) -> None:
+        GARRA.velocidade = 100
+        GARRA.rotacao = 1
+        GARRA.agarrar_rotacionar()
 
-    #def bar(self) -> None:
-        #GARRA.velocidade = 100
-        #GARRA.rotacao = 1
-        #GARRA.mover_rotacionar()
+    def bar(self) -> None:
+        GARRA.velocidade = 100
+        GARRA.rotacao = 1
+        GARRA.mover_rotacionar()
 
 
     def curva_fechada_esq(self) -> None:
