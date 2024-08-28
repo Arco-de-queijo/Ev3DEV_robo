@@ -23,4 +23,4 @@ BTN = Button()
 SENSOR_COR1.calibrate_white()
 
 
-ATIVAR.foo()
+...
