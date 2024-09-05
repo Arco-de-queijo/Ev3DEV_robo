@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/home/robot/venv311/bin/python3.11
 #bibliotecas
 from ev3dev2.sensor import INPUT_1, INPUT_2, INPUT_3, INPUT_4
 from ev3dev2.sound import Sound
@@ -12,7 +12,8 @@ MOTORES = MoveTank(OUTPUT_A, OUTPUT_B)
 
 MOVIMENTO = Tanque()
 GARRA = Claw_class()
-#SENSOR_ULTRA1 = UltrasonicSensor(INPUT_2)
+SENSOR_ULTRA1 = UltrasonicSensor(INPUT_1)
+SENSOR_ULTRA2 = UltrasonicSensor(INPUT_2)
 SENSOR_COR1 = ColorSensor(INPUT_4)
 
 
@@ -85,7 +86,7 @@ class Evento:
         MOVIMENTO.velocidade_direita = -60
         MOVIMENTO.rotacao = 0.125
         MOVIMENTO.rotacionar()
-        MOTORES.off()
+        MOTORES.off(brake = True)
 
     def ajuste_para_esquerda(self) -> None:
 
@@ -93,4 +94,4 @@ class Evento:
         MOVIMENTO.velocidade_direita = 60
         MOVIMENTO.rotacao = 0.125
         MOVIMENTO.rotacionar()
-        MOTORES.off()
+        MOTORES.off(brake = True)

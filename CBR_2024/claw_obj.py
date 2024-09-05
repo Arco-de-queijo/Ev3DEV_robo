@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/home/robot/venv311/bin/python3.11
 #bibliotecas
 import time
 from ev3dev2.motor import LargeMotor, SpeedPercent, MoveTank, MoveSteering, MediumMotor, OUTPUT_C, OUTPUT_D

@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/home/robot/venv311/bin/python3.11
 #bibliotecas
 import time
 from ev3dev2.sensor import INPUT_1, INPUT_2, INPUT_3, INPUT_4
@@ -17,10 +17,13 @@ VOZ = Sound()
 MOTORES = MoveTank(OUTPUT_A, OUTPUT_B)
 GARRA_AGARRAR = MediumMotor(OUTPUT_C)
 GARRA_MOVER = LargeMotor(OUTPUT_D)
-#SENSOR_ULTRA1 = UltrasonicSensor(INPUT_2)
+SENSOR_ULTRA1 = UltrasonicSensor(INPUT_1)
+SENSOR_ULTRA2 = UltrasonicSensor(INPUT_2)
 SENSOR_COR1 = ColorSensor(INPUT_4)
 BTN = Button()
 SENSOR_COR1.calibrate_white()
+GARRA_MOVER.stop_action = "hold"
 
+while True:
 
-...
+    ...
